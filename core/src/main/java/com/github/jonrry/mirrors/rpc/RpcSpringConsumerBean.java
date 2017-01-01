@@ -9,6 +9,7 @@ import org.springframework.beans.factory.InitializingBean;
 public class RpcSpringConsumerBean implements FactoryBean, InitializingBean {
 
 
+
     @Override
     public void afterPropertiesSet() throws Exception {
         this.init();
