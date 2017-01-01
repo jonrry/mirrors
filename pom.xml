@@ -91,6 +91,16 @@
                 <version>20.0</version>
             </dependency>
 
+            <!--===================================================================================-->
+            <!--spring配置-->
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>5.0.0.M3</version>
+            </dependency>
+
+            <!--===================================================================================-->
         </dependencies>
     </dependencyManagement>
 
