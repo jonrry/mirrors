@@ -10,7 +10,7 @@
     </parent>
     <artifactId>mirrors-core</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>core</name>
+    <name>mirrors-core</name>
 
     <build>
         <finalName>mirrors-core</finalName>
@@ -51,12 +51,6 @@
     </build>
 
     <dependencies>
-
-        <dependency>
-            <groupId>com.github.shiru.mirrors</groupId>
-            <artifactId>mirrors-api</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -70,14 +64,6 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>jline</groupId>-->
-            <!--<artifactId>jline</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>ognl</groupId>-->
-            <!--<artifactId>ognl</artifactId>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
