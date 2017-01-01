@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
 
     <name>mirrors</name>
-    <url>https://github.com/jonrry/mirrors</url>
+    <url>https://github.com/jonrry/mirrors.git</url>
     <modules>
         <module>core</module>
         <module>client</module>
