@@ -8,8 +8,14 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>greys</name>
-    <url>https://github.com/oldmanpushcart/greys-anatomy</url>
+    <name>mirrors</name>
+    <url>https://github.com/jonrry/mirrors</url>
+    <modules>
+        <module>core</module>
+        <module>client</module>
+        <module>api</module>
+        <!--<module>agent</module>-->
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -104,9 +110,5 @@
         </dependencies>
     </dependencyManagement>
 
-    <modules>
-        <module>core</module>
-        <module>client</module>
-        <!--<module>agent</module>-->
-    </modules>
+
 </project>
