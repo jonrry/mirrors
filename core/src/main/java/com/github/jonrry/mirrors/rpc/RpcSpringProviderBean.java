@@ -1,5 +1,6 @@
 package com.github.jonrry.mirrors.rpc;
 
+import com.github.jonrry.mirrors.constant.MirrorsExceptionEnum;
 import com.github.jonrry.mirrors.utils.StringUtils;
 import com.github.jonrry.mirrors.utils.log.MirrorsLogHelper;
 import com.gitub.jonrry.mirrors.RpcApiProviderBean;
@@ -18,18 +19,30 @@ public class RpcSpringProviderBean implements  InitializingBean {
     }
 
     public void init(){
-        //参数校验
-        checkRpcParams();
+        try{
+            //参数校验
+            checkRpcParams();
+
+
+
+        }catch (Exception e){
+            MirrorsLogHelper.errorLog(this.getClass().getName(),"init","occur error",e);
+        }
     }
 
 
-    private void checkRpcParams(){
+    /**
+     * 参数校验
+     * <li>如果参数是非法的,打印warn日志,并抛出异常</li>
+     * @throws Exception
+     */
+    private void checkRpcParams() throws Exception{
 
         String intefaceServiceName = rpcApiProviderBean.getInterfaceServiceName();
         String ipAddress = rpcApiProviderBean.getProviderIp();
 
         if(StringUtils.isEmpty(intefaceServiceName) || StringUtils.isEmpty(ipAddress)){
-            MirrorsLogHelper.warnLog(this.getClass().getName(), "RpcSpringProviderBean", "");
+            MirrorsLogHelper.warnLog(this.getClass().getName(), "checkRpcParams", MirrorsExceptionEnum.ILLEGALPARAM);
         }
     }
 
@@ -42,6 +55,8 @@ public class RpcSpringProviderBean implements  InitializingBean {
     public void setServiceName(String serviceName){
         rpcApiProviderBean.setServiceName(serviceName);
     }
+
+    //TODO 继续set初始化属性
 
 
 

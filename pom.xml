@@ -30,7 +30,7 @@
                 <module>api</module>
                 <module>client</module>
                 <module>core</module>
-                <module>mirrors-common</module>
+                <module>common</module>
             </modules>
             <build>
                 <finalName>mirrors</finalName>
