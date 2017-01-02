@@ -1,40 +1,41 @@
 package com.github.jonrry.mirrors.rpc;
 
-import com.gitub.jonrry.mirrors.RpcApiConsumerBean;
-import org.springframework.beans.factory.FactoryBean;
+import com.gitub.jonrry.mirrors.RpcApiProviderBean;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
  * Created by zongyue.xzy on 17/1/1.
  */
-public class RpcSpringProviderBean implements FactoryBean, InitializingBean {
+public class RpcSpringProviderBean implements  InitializingBean {
 
-
-    RpcApiConsumerBean rpcApiConsumerBean = new RpcApiConsumerBean();
+    RpcApiProviderBean rpcApiProviderBean = new RpcApiProviderBean();
 
     @Override
     public void afterPropertiesSet() throws Exception {
         this.init();
     }
 
-
-    private void init(){
-
-    }
-    
-    @Override
-    public Object getObject() throws Exception {
-        return null;
+    public void init(){
+        //参数校验
+        checkRpcParams();
     }
 
-    @Override
-    public Class<?> getObjectType() {
-        return null;
+
+    private void checkRpcParams(){
+
     }
 
+    //设置接口全称
     public void setInterfaceServiceName(String interfaceServiceName){
-        rpcApiConsumerBean.setInterfaceServiceName(interfaceServiceName);
+        rpcApiProviderBean.setInterfaceServiceName(interfaceServiceName);
     }
+
+    //设置spring服务的bean的id
+    public void setServiceName(String serviceName){
+        rpcApiProviderBean.setServiceName(serviceName);
+    }
+
+
 
 
 }
