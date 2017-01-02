@@ -52,10 +52,18 @@
 
     <dependencies>
 
+        <!--本地pom依赖-->
         <dependency>
             <groupId>com.github.shiru.mirrors</groupId>
             <artifactId>mirrors-api</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.github.shiru.mirrors</groupId>
+            <artifactId>mirrors-common</artifactId>
+        </dependency>
+
+        <!--本地 pom 依赖结束-->
 
         <dependency>
             <groupId>junit</groupId>

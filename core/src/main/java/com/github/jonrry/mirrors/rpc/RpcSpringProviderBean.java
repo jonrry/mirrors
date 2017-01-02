@@ -1,5 +1,7 @@
 package com.github.jonrry.mirrors.rpc;
 
+import com.github.jonrry.mirrors.utils.StringUtils;
+import com.github.jonrry.mirrors.utils.log.MirrorsLogHelper;
 import com.gitub.jonrry.mirrors.RpcApiProviderBean;
 import org.springframework.beans.factory.InitializingBean;
 
@@ -26,6 +28,9 @@ public class RpcSpringProviderBean implements  InitializingBean {
         String intefaceServiceName = rpcApiProviderBean.getInterfaceServiceName();
         String ipAddress = rpcApiProviderBean.getProviderIp();
 
+        if(StringUtils.isEmpty(intefaceServiceName) || StringUtils.isEmpty(ipAddress)){
+            MirrorsLogHelper.warnLog(this.getClass().getName(), "RpcSpringProviderBean", "");
+        }
     }
 
     //设置接口全称
