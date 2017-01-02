@@ -7,7 +7,7 @@ import org.springframework.beans.factory.InitializingBean;
 /**
  * Created by zongyue.xzy on 17/1/1.
  */
-public class RpcSpringConsumerBean implements FactoryBean, InitializingBean {
+public class RpcSpringProviderBean implements FactoryBean, InitializingBean {
 
 
     RpcApiConsumerBean rpcApiConsumerBean = new RpcApiConsumerBean();
@@ -21,7 +21,7 @@ public class RpcSpringConsumerBean implements FactoryBean, InitializingBean {
     private void init(){
 
     }
-
+    
     @Override
     public Object getObject() throws Exception {
         return null;

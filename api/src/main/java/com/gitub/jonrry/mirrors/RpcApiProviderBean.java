@@ -3,7 +3,7 @@ package com.gitub.jonrry.mirrors;
 /**
  * Created by zongyue.xzy on 17/1/1.
  */
-public class RpcApiConsumerBean {
+public class RpcApiProviderBean {
 
     //服务名称
     private String serviceName;
