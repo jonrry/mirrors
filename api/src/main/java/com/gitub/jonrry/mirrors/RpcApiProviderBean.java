@@ -1,9 +1,15 @@
 package com.gitub.jonrry.mirrors;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 /**
  * Created by zongyue.xzy on 17/1/1.
  */
 public class RpcApiProviderBean {
+
+    //坚挺该服务配置是否已经被初始化了
+    private AtomicBoolean isInit = new AtomicBoolean(false);
+
 
     //服务名称
     private String serviceName;
@@ -69,5 +75,13 @@ public class RpcApiProviderBean {
 
     public void setTimingOut(int timingOut) {
         this.timingOut = timingOut;
+    }
+
+    public AtomicBoolean getIsInit() {
+        return isInit;
+    }
+
+    public void setIsInit(AtomicBoolean isInit) {
+        this.isInit = isInit;
     }
 }

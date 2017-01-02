@@ -23,6 +23,12 @@ public class RpcSpringProviderBean implements  InitializingBean {
             //参数校验
             checkRpcParams();
 
+            //如果该服务配置已经被初始化发布了,就不要再去进行发布了
+            if(rpcApiProviderBean.getIsInit().get()){
+                MirrorsLogHelper.infoLog(this.getClass().getName(),"init","this spring service have been inited");
+                return;
+            }
+
 
 
         }catch (Exception e){
@@ -36,6 +42,7 @@ public class RpcSpringProviderBean implements  InitializingBean {
      * <li>如果参数是非法的,打印warn日志,并抛出异常</li>
      * @throws Exception
      */
+    //TODO 需要继续加参数校验的逻辑
     private void checkRpcParams() throws Exception{
 
         String intefaceServiceName = rpcApiProviderBean.getInterfaceServiceName();
