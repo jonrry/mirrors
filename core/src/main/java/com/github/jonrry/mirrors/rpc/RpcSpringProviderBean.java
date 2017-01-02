@@ -23,6 +23,9 @@ public class RpcSpringProviderBean implements  InitializingBean {
 
     private void checkRpcParams(){
 
+        String intefaceServiceName = rpcApiProviderBean.getInterfaceServiceName();
+        String ipAddress = rpcApiProviderBean.getProviderIp();
+
     }
 
     //设置接口全称
