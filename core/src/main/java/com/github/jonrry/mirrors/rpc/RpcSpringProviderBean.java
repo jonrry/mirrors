@@ -29,11 +29,18 @@ public class RpcSpringProviderBean implements  InitializingBean {
                 return;
             }
 
-
+            //开始初始化发布rpc服务
+            publishProviderService();
 
         }catch (Exception e){
             MirrorsLogHelper.errorLog(this.getClass().getName(),"init","occur error",e);
         }
+    }
+
+
+    //初始化发布rpc服务
+    private void publishProviderService(){
+
     }
 
 
