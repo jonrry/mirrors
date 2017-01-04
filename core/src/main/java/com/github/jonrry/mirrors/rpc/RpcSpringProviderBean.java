@@ -40,7 +40,7 @@ public class RpcSpringProviderBean implements  InitializingBean {
 
     //初始化发布rpc服务
     private void publishProviderService(){
-
+        rpcApiProviderBean.publish();
     }
 
 

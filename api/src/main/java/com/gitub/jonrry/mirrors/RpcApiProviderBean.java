@@ -1,11 +1,19 @@
 package com.gitub.jonrry.mirrors;
 
+import com.gitub.jonrry.mirrors.meta.ServiceInfoMeta;
+
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created by zongyue.xzy on 17/1/1.
  */
 public class RpcApiProviderBean {
+
+    //服务基础信息
+    ServiceInfoMeta serviceInfoMeta = new ServiceInfoMeta();
+
+    private AtomicBoolean isPublished = new AtomicBoolean(false);
+
 
     //坚挺该服务配置是否已经被初始化了
     private AtomicBoolean isInit = new AtomicBoolean(false);
@@ -29,6 +37,18 @@ public class RpcApiProviderBean {
     //客户端等待响应的超时时间
     private int  timingOut;
 
+
+    /**
+     * 开始服务的发布流程
+     */
+    public void publish(){
+        if(isPublished.get()){
+//            Mirr
+        }
+
+
+    }
+
     public String getServiceName() {
         return serviceName;
     }
@@ -42,7 +62,7 @@ public class RpcApiProviderBean {
     }
 
     public void setInterfaceServiceName(String interfaceServiceName) {
-        this.interfaceServiceName = interfaceServiceName;
+        this.serviceInfoMeta.setIntefaceServiceName(interfaceServiceName);
     }
 
     public String getProviderIp() {
