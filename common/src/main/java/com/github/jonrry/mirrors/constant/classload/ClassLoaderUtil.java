@@ -10,8 +10,15 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class ClassLoaderUtil {
 
+    //类缓存器
     private static ConcurrentHashMap<Class<?>,Object> classCache = new ConcurrentHashMap<Class<?>, Object>();
 
+    /**
+     * 类加载
+     * @param classType
+     * @param <T>
+     * @return
+     */
     public static  <T> T classLoad(Class<T> classType){
 
         T instance = (T) classCache.get(classType);
@@ -26,7 +33,6 @@ public class ClassLoaderUtil {
                 MirrorsLogHelper.errorLog("ClassLoaderUtil","classLoad","class is not found,className is:"+classType.getName(),e);
             }
         }
-
         return instance;
     }
 }
