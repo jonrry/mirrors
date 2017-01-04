@@ -14,6 +14,8 @@
         <module>core</module>
         <module>client</module>
         <module>api</module>
+        <module>common</module>
+        <module>remote</module>
     </modules>
 
     <properties>
@@ -31,6 +33,7 @@
                 <module>client</module>
                 <module>core</module>
                 <module>common</module>
+                <module>remote</module>
             </modules>
             <build>
                 <finalName>mirrors</finalName>
@@ -54,6 +57,8 @@
                 <module>api</module>
                 <module>client</module>
                 <module>core</module>
+                <module>common</module>
+                <module>remote</module>
             </modules>
             <build>
                 <finalName>resource-console</finalName>
@@ -116,6 +121,12 @@
             <dependency>
                 <groupId>com.github.shiru.mirrors</groupId>
                 <artifactId>mirrors-common</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.shiru.mirrors</groupId>
+                <artifactId>mirrors-remote</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <!--======================================================================-->
