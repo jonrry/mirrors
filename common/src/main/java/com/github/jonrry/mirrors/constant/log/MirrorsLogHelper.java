@@ -45,7 +45,7 @@ public class MirrorsLogHelper {
     /**
      *打印error日志
      */
-    public static void errorLog(String className, String methodName, String systemInfo, Throwable throwable){
+    public static void errorLog(String className, String methodName, Object systemInfo, Throwable throwable){
         MirrorsLog.system.error(ERROR_LOG_PATH, className, methodName, systemInfo, throwable);
     }
 

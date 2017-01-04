@@ -1,7 +1,9 @@
 package com.gitub.jonrry.mirrors;
 
+import com.github.jonrry.mirrors.constant.classload.ClassLoaderUtil;
 import com.github.jonrry.mirrors.constant.log.MirrorsLogHelper;
 import com.gitub.jonrry.mirrors.meta.ServiceInfoMeta;
+import com.gitub.jonrry.mirrors.process.ServicePublihProcess;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -10,8 +12,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public class RpcApiProviderBean {
 
+
+//    ClassLoaderUtil classLoaderUtil =  new ClassLoaderUtil();
+
     //服务基础信息
     ServiceInfoMeta serviceInfoMeta = new ServiceInfoMeta();
+
+
+    ServicePublihProcess servicePublihProcess;
+
 
     private AtomicBoolean isPublished = new AtomicBoolean(false);
 
@@ -19,6 +28,12 @@ public class RpcApiProviderBean {
     //坚挺该服务配置是否已经被初始化了
     private AtomicBoolean isInit = new AtomicBoolean(false);
 
+
+    //默认构造器
+    public RpcApiProviderBean(){
+        //初始化服务发布类
+        this.servicePublihProcess = ClassLoaderUtil.classLoad(ServicePublihProcess.class);
+    }
 
     //服务名称
     private String serviceName;
@@ -47,10 +62,11 @@ public class RpcApiProviderBean {
         /**如果该bean已经被初始化了,就不要再次进行初始化*/
         if(isPublished.get()){
             MirrorsLogHelper.infoLog(this.getClass().getName(),"RpcApiProviderBean","this bean have been init");
-            return;
+//            return;
+        }else {
+            //标志该bean已经进行了初始化
+            isPublished.set(true);
         }
-        //标志该bean进行初始化
-        isPublished.set(true);
 
 
 
