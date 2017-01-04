@@ -1,5 +1,6 @@
 package com.gitub.jonrry.mirrors;
 
+import com.github.jonrry.mirrors.constant.log.MirrorsLogHelper;
 import com.gitub.jonrry.mirrors.meta.ServiceInfoMeta;
 
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -42,9 +43,16 @@ public class RpcApiProviderBean {
      * 开始服务的发布流程
      */
     public void publish(){
+
+        /**如果该bean已经被初始化了,就不要再次进行初始化*/
         if(isPublished.get()){
-//            Mirr
+            MirrorsLogHelper.infoLog(this.getClass().getName(),"RpcApiProviderBean","this bean have been init");
+            return;
         }
+        //标志该bean进行初始化
+        isPublished.set(true);
+
+
 
 
     }
