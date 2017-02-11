@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/client/client.iml" filepath="$PROJECT_DIR$/client/client.iml" />
       <module fileurl="file://$PROJECT_DIR$/mirrors.iml" filepath="$PROJECT_DIR$/mirrors.iml" />
       <module fileurl="file://$PROJECT_DIR$/api/mirrors-api.iml" filepath="$PROJECT_DIR$/api/mirrors-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/client/client.iml" filepath="$PROJECT_DIR$/client/client.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/mirrors-common.iml" filepath="$PROJECT_DIR$/common/mirrors-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/mirrors-core.iml" filepath="$PROJECT_DIR$/core/mirrors-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/remote/mirrors-remote.iml" filepath="$PROJECT_DIR$/remote/mirrors-remote.iml" />

@@ -5,6 +5,8 @@ import com.github.jonrry.mirrors.constant.log.MirrorsLogHelper;
 import com.gitub.jonrry.mirrors.meta.ServiceInfoMeta;
 import com.gitub.jonrry.mirrors.process.ServicePublihProcess;
 
+import java.net.InetAddress;
+import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -57,21 +59,26 @@ public class RpcApiProviderBean {
     /**
      * 开始服务的发布流程
      */
-    public void publish(){
+    public void publish() {
 
         /**如果该bean已经被初始化了,就不要再次进行初始化*/
         if(isPublished.get()){
             MirrorsLogHelper.infoLog(this.getClass().getName(),"RpcApiProviderBean","this bean have been init");
-//            return;
+            return;
         }else {
             //标志该bean已经进行了初始化
             isPublished.set(true);
         }
 
+        try{
+            this.providerIp =  InetAddress.getLocalHost().getHostAddress();
+            //初始化关键信息
+            initMetaInfo();
 
 
+        }catch (Exception e){
 
-
+        }
 
     }
 
@@ -129,5 +136,12 @@ public class RpcApiProviderBean {
 
     public void setIsInit(AtomicBoolean isInit) {
         this.isInit = isInit;
+    }
+
+    private void initMetaInfo(){
+        this.serviceInfoMeta.setIntefaceServiceName(interfaceServiceName);
+        this.setServiceName(serviceName);
+        this.setServiceVersion(serviceVersion);
+        this.setProviderIp(providerIp);
     }
 }

@@ -1,20 +1,34 @@
-package com.github.jonrry.mirrors.netty;
+package com.github.jonrry.mirrors.netty.server;
 
 
+import com.github.jonrry.mirrors.netty.NettyThreadFactory;
+import io.netty.bootstrap.Bootstrap;
+import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
-import org.slf4j.Logger;
 
 /**
  * Netty Server
- *
- * @author kongming.lrq
  */
 public class NettyServer {
 //    private static final Logger LOGGER = LoggerInit.LOGGER_REMOTING;
 //
 
     private final EventLoopGroup eventLoopGroup = new NioEventLoopGroup(0,new NettyThreadFactory());
+
+
+
+    //TODO 需要考虑nettyServer是否会被多次初始化
+    public void statrtNettyServer(int listenPort){
+
+        ServerBootstrap serverBootstrap = new ServerBootstrap();
+
+        serverBootstrap.group(eventLoopGroup);
+//                        .childOption();
+
+    }
+
+
 //    private final EventLoopGroup bossGroup = new NioEventLoopGroup(0, new NamedThreadFactory(
 //            HSFThreadNameSpace.HSF_NETTY_BOSS));
 //    private final EventLoopGroup workerGroup = NettySharedHolder.workerGroup;
@@ -168,5 +182,29 @@ public class NettyServer {
 //        }
 //
 //    }
+
+
+    public static String fuzzySearchFilter(String param){
+
+        String resultParam = param.trim();
+
+        if(resultParam.contains("!")||resultParam.contains("#") ||resultParam.contains("¥") ||
+                resultParam.contains("%") || resultParam.contains("$")){
+            resultParam = resultParam.replace("!","");
+            resultParam = resultParam.replace("#","");
+            resultParam = resultParam.replace("¥","");
+            resultParam = resultParam.replace("%","");
+            resultParam = resultParam.replace("$","");
+        }
+        return resultParam;
+    }
+
+
+    public static void main(String[] args){
+        String s = "   234$534$#%";
+        s = fuzzySearchFilter(s);
+        System.out.println(s);
+
+    }
 }
 

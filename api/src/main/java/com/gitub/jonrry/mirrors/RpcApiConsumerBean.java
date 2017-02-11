@@ -8,6 +8,9 @@ public class RpcApiConsumerBean {
     //服务名称
     private String serviceName;
 
+    //服务版本号
+    private String serviceVersion;
+
     //对应的服务接口全程
     private String interfaceServiceName;
 
@@ -36,5 +39,13 @@ public class RpcApiConsumerBean {
 
     public void setProviderIp(String providerIp) {
         this.providerIp = providerIp;
+    }
+
+    public String getServiceVersion() {
+        return serviceVersion;
+    }
+
+    public void setServiceVersion(String serviceVersion) {
+        this.serviceVersion = serviceVersion;
     }
 }

@@ -53,11 +53,10 @@ public class RpcSpringProviderBean implements  InitializingBean {
     private void checkRpcParams() throws Exception{
 
         String intefaceServiceName = rpcApiProviderBean.getInterfaceServiceName();
-        String ipAddress = rpcApiProviderBean.getProviderIp();
-
-        if(StringUtils.isEmpty(intefaceServiceName) || StringUtils.isEmpty(ipAddress)){
-            MirrorsLogHelper.warnLog(this.getClass().getName(), "checkRpcParams", MirrorsExceptionEnum.ILLEGALPARAM);
+        if(StringUtils.isEmpty(intefaceServiceName)){
+//            MirrorsLogHelper.warnLog();
         }
+
     }
 
     //设置接口全称

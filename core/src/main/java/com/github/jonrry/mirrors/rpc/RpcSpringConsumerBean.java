@@ -32,9 +32,16 @@ public class RpcSpringConsumerBean implements FactoryBean, InitializingBean {
         return null;
     }
 
+
+    //设置服务名称
     public void setInterfaceServiceName(String interfaceServiceName){
         rpcApiConsumerBean.setInterfaceServiceName(interfaceServiceName);
     }
 
+
+    //设置服务版本号
+    public void setServiceVersion(String serviceVersion){
+        this.rpcApiConsumerBean.setServiceVersion(serviceVersion);
+    }
 
 }
