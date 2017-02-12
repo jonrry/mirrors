@@ -27,9 +27,8 @@ public class RpcApiProviderBean {
     private AtomicBoolean isPublished = new AtomicBoolean(false);
 
 
-    //坚挺该服务配置是否已经被初始化了
+    //标志该服务配置是否已经被初始化了
     private AtomicBoolean isInit = new AtomicBoolean(false);
-
 
     //默认构造器
     public RpcApiProviderBean(){
@@ -74,7 +73,7 @@ public class RpcApiProviderBean {
             this.providerIp =  InetAddress.getLocalHost().getHostAddress();
             //初始化关键信息
             initMetaInfo();
-
+            servicePublihProcess.publish(serviceInfoMeta);
 
         }catch (Exception e){
 
